@@ -1,0 +1,42 @@
+name: 'ZapCircle Review'
+description: 'Run a behavior-aware AI code review using npx zapcircle review'
+author: 'ZapCircleHQ'
+branding:
+  icon: 'check-circle'
+  color: 'blue'
+
+inputs:
+  provider:
+    description: 'The LLM provider (e.g., openai, anthropic, google)'
+    required: false
+    default: 'openai'
+
+  model:
+    description: 'The model to use (e.g., o4-mini, claude-3-opus)'
+    required: false
+    default: 'o4-mini'
+
+  zapcircleVersion:
+    description: 'Version of zapcircle to use (e.g., 0.2.6)'
+    required: false
+    default: 'latest'
+
+  OPENAI_API_KEY:
+    description: 'API key for OpenAI'
+    required: false
+
+  ANTHROPIC_API_KEY:
+    description: 'API key for Anthropic'
+    required: false
+
+  GOOGLE_API_KEY:
+    description: 'API key for Google'
+    required: false
+
+  baseUrl:
+    description: 'Custom base URL for non-default API endpoints'
+    required: false
+
+runs:
+  using: 'node22'
+  main: 'index.js'

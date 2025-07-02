@@ -1,0 +1,29 @@
+name: ZapCircle Review Action Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-action:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
+      - name: Install ZapCircle
+        run: npm install zapcircle --save-dev
+
+      - name: Run ZapCircle Review
+        uses: ./ # This runs the action in the current repo (for testing)
+        with:
+          provider: openai
+          model: o4-mini
