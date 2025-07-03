@@ -12,7 +12,7 @@ async function run() {
       ...process.env
     };
 
-    let cmd = `npx zapcircle@${zapcircleVersion} review --provider=${provider} --model=${model}`;
+    let cmd = `npx zapcircle@${zapcircleVersion} review --github --provider=${provider} --model=${model}`;
     if (baseUrl) cmd += ` --baseUrl=${baseUrl}`;
 
     await exec.exec(cmd, [], { env });
