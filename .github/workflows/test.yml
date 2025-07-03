@@ -13,17 +13,23 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
+        with:
+            fetch-depth: 0 
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 22
+          node-version: 20
 
       - name: Install ZapCircle
         run: npm install zapcircle --save-dev
 
       - name: Run ZapCircle Review
         uses: ./ # This runs the action in the current repo (for testing)
+        env:
+            OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }} # Optional
+            ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }} # Optional
+            GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }} # Optional
         with:
           provider: openai
           model: o4-mini

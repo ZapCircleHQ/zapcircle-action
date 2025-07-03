@@ -9,13 +9,10 @@ async function run() {
     const baseUrl = core.getInput('baseUrl') || '';
 
     const env = {
-      ...process.env,
-      OPENAI_API_KEY: core.getInput('OPENAI_API_KEY') || process.env.OPENAI_API_KEY,
-      ANTHROPIC_API_KEY: core.getInput('ANTHROPIC_API_KEY') || process.env.ANTHROPIC_API_KEY,
-      GOOGLE_API_KEY: core.getInput('GOOGLE_API_KEY') || process.env.GOOGLE_API_KEY,
+      ...process.env
     };
 
-    let cmd = `npx zapcircle@${zapcircleVersion} review --provider=${provider} --model=${model}`;
+    let cmd = `npx zapcircle@${zapcircleVersion} review --github --provider=${provider} --model=${model}`;
     if (baseUrl) cmd += ` --baseUrl=${baseUrl}`;
 
     await exec.exec(cmd, [], { env });
