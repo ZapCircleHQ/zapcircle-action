@@ -7,12 +7,9 @@ async function run() {
     const model = core.getInput('model') || 'o4-mini';
     const zapcircleVersion = core.getInput('zapcircleVersion') || 'latest';
     const baseUrl = core.getInput('baseUrl') || '';
-
+a
     const env = {
-      ...process.env,
-      OPENAI_API_KEY: core.getInput('OPENAI_API_KEY') || process.env.OPENAI_API_KEY,
-      ANTHROPIC_API_KEY: core.getInput('ANTHROPIC_API_KEY') || process.env.ANTHROPIC_API_KEY,
-      GOOGLE_API_KEY: core.getInput('GOOGLE_API_KEY') || process.env.GOOGLE_API_KEY,
+      ...process.env
     };
 
     let cmd = `npx zapcircle@${zapcircleVersion} review --provider=${provider} --model=${model}`;
