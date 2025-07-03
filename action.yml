@@ -17,7 +17,7 @@ inputs:
     default: 'o4-mini'
 
   zapcircleVersion:
-    description: 'Version of zapcircle to use (e.g., 0.2.6)'
+    description: 'Version of zapcircle to use (e.g., 0.2.7)'
     required: false
     default: 'latest'
 
