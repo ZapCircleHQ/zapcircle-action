@@ -31,7 +31,21 @@ ZapCircle Review will review the code changes in your pull request, and give you
 
 ---
 
-## 📥 Inputs
+## Important Note
+
+You will want to make sure your checkout uses a `fetch-depth` so that it includes your `origin/main` branch, such as this:
+
+```yaml
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+            fetch-depth: 0
+```
+
+---
+
+## Inputs
 
 | Name               | Description                          | Default    |
 |--------------------|--------------------------------------|------------|
