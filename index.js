@@ -7,7 +7,7 @@ async function run() {
     const model = core.getInput('model') || 'o4-mini';
     const zapcircleVersion = core.getInput('zapcircleVersion') || 'latest';
     const baseUrl = core.getInput('baseUrl') || '';
-a
+
     const env = {
       ...process.env
     };
